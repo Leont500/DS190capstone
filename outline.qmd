@@ -1,0 +1,36 @@
+---
+title: "Tentative Outline."
+description: |
+  A tentative outline of the titles of the major sections of your capstone project and a (short) narrative explaining what is going to go in each section.
+author: Leonardo Torres
+date: September 30, 2025
+format: pdf
+execute:
+  warning: false
+  message: false
+---
+
+### Introduction
+Create a message of why I am doing this project, specifically a hook into earth's position right now not just in climate change (as everyone knows) but in a multitude of areas that are affected by human activities. Briefly introduce what a planetary boundary is along with its framework as a scientific concept establish in the 2000s. Also address the main problem in this project, which is to create a tool accessible  to anyone for PB assessment to gain a broader knowledge of environment status in the world.
+
+### Background
+Explain foundational knowledge, definitions/terms of what will be used down in later sections such as an in-depth look at each boundary, the package itself and what it offers (terrastrial boundaries only), and go over papers that have discussed these boundaries before.
+
+
+### System Design
+Describe the overall architecture of my dashboard. Backend: Boundaries R package. Frontend: UI through a web browser. Displays visualizations.
+
+
+### Implementation
+In-depth details of what the dashboard will be made up of. Describe key-feature and the code in a readable/easy to read format with little jargon. Use widgets/sliders to customize the model creation/simulation, select specific PBs to analyze, adjust parameters, etc.
+
+
+### Visual Demonstrations
+Demonstrate a walk through of the dashboard, specifically what it can create, showing its limits, and explore different PBs.
+
+
+### Discussion
+This section will critique the work I have been doing so far. I will go over limitations that have been discussed throughout the paper, go over future steps to improve the dashboard further whether it be for more accuracy or more accessible options to the user, and overall broader applications such as use in education.
+
+### Conclusion/Reflection
+Summarization of the whole project, go over what has been accomplished and compare final results to original goals/expectations. Talk about challenges encountered throughout the project, and finally reflect on the impact this project will do. 

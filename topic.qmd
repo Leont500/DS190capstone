@@ -1,10 +1,17 @@
 ---
-title: "topic"
-format: html
-editor: visual
+title: "Topic."
+description: |
+  Topic of capstone project.
+author: Leonardo Torres
+date: September 2, 2025
+format: pdf
+execute:
+  warning: false
+  message: false
 ---
 
-## Topic
+
+### Topic
 
 Advisor: Marc Los Huertos (Environmental Studies at Pomona College)
 
