@@ -11,8 +11,45 @@ execute:
 ---
 
 ### Background: Planetary Boundaries and "boundaries" R package.
-In this section, I will establish the scientific and methodological groundwork for this project. I will first dive into the Planetary Boundaries (PB) framework as a foundation concept for quantifying global environmental system risk. Afterwards, I will go into what the boundaries R package is, the contribution it offers, and overall its analytical functions for the purpose of this project.
+In this section, I will establish the scientific and methodological groundwork for this project. I will first dive into the Planetary Boundaries (PB) framework as a foundation concept for quantifying global environmental system risk. Afterwards, I will go into what the boundaries R package is, the contribution it offers, and overall its analytically functions for the purpose of this project.
 
 ## Planetary Boundaries Framework
+The Planetary Boundaries framework, introduced by Rockstrom (2009), provides a science-based proposal for understanding and quantifying the limits of anthropogenic perturbation on critical Earth system processes, which we will describe within this section. This framework has been establish to represent a planetary state throughout the past ~11,000 years, known as the Holocene epoch, which is the only planetary state known to support humans. The drastic human impact on the Earth system throughout the last few decades has put the planet into a risky position that could be out of the scope of the Holocene epoch, putting us into a stage of non-linear, abrupt, and irreversible environmental changes on a planetary scale.
+
+This framework establishes nine interlinked planetary boundaries where each correspond with a important Earth system process:
+1. Climate Change
+2. Biosphere Integrity 
+3. Land-system change
+4. Freshwater change
+5. Biogeochemical Flows (Nitrogen and Phosphorus cycles)
+6. Ocean Acidification
+7. Atmospheric Aerosol Loading
+8. Stratospheric Ozone Depletion
+9. Novel Entities
+
+Back in 2015, this framework was built upon by Steffen (2015) by incorporating:
+- A Two-Tier approach: Many processes operate at regional scales, boundaries were defined for both global and sub-global levels (such as for fresh water and land-system change)
+- Core Boundaries: Boundaries, such as Climate Change and Biosphere Integrity, regulate the overall state of the Earth system and can individually drive the planet into a new state.
+- Refining Control Variables: Control variables and their quantitative boundaries are updates based on latest scientific evidence.
+
+Overall, there are several boundaries at the moment that have already transgressed the safety threshold, placing humanity in zone to enter a new inhabitable state.
 
 ## Boundaries R Package
+
+Gerten (2025) developed the boundaries R package, an open-source R software designed to facilitate the standardized calculation and visualization of planetary boundary statuses. This package serves as a post-processing tool that translates raw model output into PB assessments.
+Some key features of the package:
+- Model Input: Designed to work with outputs from the LPJmL (LundPotsdam-Jena managed Land) dynamic global vegetation model, which overall simulates ecological, hydrological, and biogeochemical processes which will then be used in relevancy to terrestrial PBs.
+- PB Coverage: As mentioned previously, this model is only functionable with terrestrial PBs, this includes the following boundaries: Land-System Change, Biosphere Integrity, Biogeochemical Flows, and Freshwater Change.
+- Core functionality:
+  - Calculation (calc_status) Computes the status of a selected PB for user-defined timer periods and spatial scales within the model
+  - Visualization (plot_status) Generates temporal trajectories and spatial patterns to illustrate when and where boundaries are transgressed, when they cross the safety threshold.
+  - Validation (validate_simulation) Compares the output of the model against independent data sources to ensure plausibility/accuracy.
+  
+This important open-source tool, the boundaries package, will allow us to make an advancement in making PB science more accessible, robust, and reproducible. From this, we will build directly upon from this purpose to create a user-friendly dashboard interface that utilizes the package to correctly understand and visualize planetary boundary assessments
+
+
+
+
+
+
+
