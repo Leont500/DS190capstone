@@ -1,0 +1,18 @@
+---
+title: "Section Draft"
+description: |
+  Background Section
+author: Leonardo Torres
+date: October 7, 2025
+format: pdf
+execute:
+  warning: false
+  message: false
+---
+
+### Background: Planetary Boundaries and "boundaries" R package.
+In this section, I will establish the scientific and methodological groundwork for this project. I will first dive into the Planetary Boundaries (PB) framework as a foundation concept for quantifying global environmental system risk. Afterwards, I will go into what the boundaries R package is, the contribution it offers, and overall its analytical functions for the purpose of this project.
+
+## Planetary Boundaries Framework
+
+## Boundaries R Package
