@@ -76,6 +76,17 @@ Some key features of the package:
 This important open-source tool, the boundaries package, will allow us to make an advancement in making PB science more accessible, robust, and reproducible. From this, we will build directly upon from this purpose to create a user-friendly dashboard interface that utilizes the package to correctly understand and visualize planetary boundary assessments
 
 
+## System Design: Architecture for an Interactive Dashboard
+
+
+## Implementation: Building the Dashboard Interface & Functionality
+
+## Visual Demonstrations: Exploring Scenarios and Visualizations
+
+## Discussion: Limitiations, Future Enhacnments, and Applications in the Real World
+
+## Conclusion & Reflection
+
 
 ```{=latex}
 \nocite{*}
