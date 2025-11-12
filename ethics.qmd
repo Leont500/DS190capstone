@@ -1,0 +1,27 @@
+---
+title: "Ethics Component"
+description: |
+  A description of ethical challenges and how I have addressed them.
+author: Leonardo Torres
+date: November 11, 2025
+format: pdf
+execute:
+  warning: false
+  message: false
+---
+
+# Ethical Challenges
+
+## Data Transparency and Reproducibility
+Without a clear documentation of data provenance and calculation methods, there are risks of this data being minsterpreted or misued in policy/academic contexts. This should be addressed by: 1. Follow established scientific methodlogies from the boundaries R package. 2. Provide documentation of all data sources and model assumptions within the dashboard. 3. Enable full reproducibility through Github. 4. Keep the project open-source in order to maintain validation and allowing for community input.
+
+## Scientific Communication and Risk of Misinerpretation
+
+
+
+
+## Global Sustainability
+
+## Open Access and Knowledge
+
+## Responsible Implementation/Use and Impact Considerations
