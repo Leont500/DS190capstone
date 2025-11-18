@@ -11,17 +11,30 @@ execute:
 ---
 
 # Ethical Challenges
+The development of an interactive dashboard for planetary boundaries assessment presents several important ethical considerations that have been addressed throughout this project's design and implementation.
 
 ## Data Transparency and Reproducibility
-Without a clear documentation of data provenance and calculation methods, there are risks of this data being minsterpreted or misued in policy/academic contexts. This should be addressed by: 1. Follow established scientific methodlogies from the boundaries R package. 2. Provide documentation of all data sources and model assumptions within the dashboard. 3. Enable full reproducibility through Github. 4. Keep the project open-source in order to maintain validation and allowing for community input.
+
+Without a clear documentation of data and calculation methods, there are risks of this data being minsterpreted or misued in policy/academic contexts. This should be addressed by: 1. Follow established scientific methodlogies from the boundaries R package. 2. Provide documentation of all data sources and model assumptions within the dashboard. 3. Enable full reproducibility through Github. 4. Keep the project open-source in order to maintain validation and allowing for community input.
 
 ## Scientific Communication and Risk of Misinerpretation
 
-
+The visualizations of planetary boundary data in an accessible dashboard carries the risk of oversimplification or misinterpretation. Users without technical backgrounds might draw inappropriate or incorrect conclusions from presented data. To mitigate such a rish we can: 1. Include contextual information and explanatory notes for each planteary boundary metric. 2. Establish the distinction between the zones of increasing risk, high risk, and holocene. 3. Establish what the limitations are of the model, such that we only have access to certain terrestrial planetary boundaries and terrestrial values in the world.
 
 
 ## Global Sustainability
 
+The planetary boundaries framework inherently raises questions of global equity and justice. The current rules documented in the dashboard result disproportionately from historical and contemporary resource use by industrialized nations, while the consequences often affect vulnerable populations most severely. This project acknowledges these ethical worries by: 1.Clearly presenting data at multiple scales (global, regional, and biome level) to highlight different impacts. 2.Avoiding framing that suggests equal responsibility or equal consequences across different regions and populations
+
 ## Open Access and Knowledge
 
+This project is built on the belief that important scientific information should be available to everyone. To achieve this, the dashboard is designed to be free to use and easy to understand, even for people who are not experts. This ensures that students, teachers, and community leaders can all use it to learn about planetary boundaries. The code behind the dashboard is also open for anyone to see and improve, encouraging a community effort to make the tool better for everyone. Some demo or examples will be available as well to ensure people who want to access this knowledge can freely do this.
+
+
 ## Responsible Implementation/Use and Impact Considerations
+
+The dashboard is meant to provide reliable information and support discussion surrounding planetary boundaries. It does not tell users what decisions to make or what policies to support as these worlds don't reflect the real one. The data shows the physical limits of our planet, but how we choose to live within those limits involves complex social and ethical choices that are up to society to decide. By focusing on presenting the facts clearly and without bias, the tool aims to empower users to make their own informed choices. In order to ensure this message goes across, users must understand a terms and conditions that shows that show data and visualizations is for the sole purpose of getting a better understanding of planetary boundaries within a scope of another world.
+
+
+
+
