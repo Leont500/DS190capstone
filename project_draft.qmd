@@ -76,10 +76,15 @@ Some key features of the package:
 This important open-source tool, the boundaries package, will allow us to make an advancement in making PB science more accessible, robust, and reproducible. From this, we will build directly upon from this purpose to create a user-friendly dashboard interface that utilizes the package to correctly understand and visualize planetary boundary assessments
 
 
-## System Design: Architecture for an Interactive Dashboard
+## Data sources and Processing:
 
+The primary data source for this dashboard is output from the LPJmL biosphere model, which simulates the growth and productivity of natural and agricultural vegetation in coupling with ecological, hydrological, and biogeochemical processes. The boundaries package post-processes these outputs—which include variables like net primary production, streamflow, soil moisture, and nitrogen fluxes—to compute the status of the four terrestrial planetary boundaries. The data is structured in a standardized netCDF format, allowing for consistent spatiotemporal analysis over the period 1901-2017, relative to a pre-industrial reference state.
 
 ## Implementation: Building the Dashboard Interface & Functionality
+
+The dashboard (will be) is implemented as a Shiny web application within the R environment. Shiny provides a framework for building interactive web apps directly from R, making it the ideal middleware to connect a user-friendly frontend with the computational backend of the boundaries package. The boundaries R package and its dependencies (e.g., lpjmkit), which perform all complex calculations. The Shiny application server, which handles user input, calls the appropriate boundaries functions, and serves the results. The user interface (UI) built with Shiny's UI components, rendered in a web browser. This includes control widgets (sliders, dropdowns, boolean) and output areas for maps and plots.
+Allow user to choose which of the four boundaries to analyze (or multiple)
+Allow to switch between viewing temporal trends (line graphs) and spatial patterns (interactive maps).Modify key scientific thresholds (e.g., the forest cover percentage defining the Land-System Change boundary) to explore different scenarios.
 
 ## Visual Demonstrations: Exploring Scenarios and Visualizations
 
@@ -111,7 +116,11 @@ This project is built on the belief that important scientific information should
 The dashboard is meant to provide reliable information and support discussion surrounding planetary boundaries. It does not tell users what decisions to make or what policies to support as these worlds don't reflect the real one. The data shows the physical limits of our planet, but how we choose to live within those limits involves complex social and ethical choices that are up to society to decide. By focusing on presenting the facts clearly and without bias, the tool aims to empower users to make their own informed choices. In order to ensure this message goes across, users must understand a terms and conditions that shows that show data and visualizations is for the sole purpose of getting a better understanding of planetary boundaries within a scope of another world.
 
 ## Conclusion & Reflection
+The project provides an example of an accessible interface built for complex scientific computational tools. The dashboard built from the boundaries R package, while retaining the technical complexity of the dashboard, democratization of closure planetary boundaries science. This can enable educators, provide transparent, data-driven visualizations, and support policymakers brainstorm ideas towards change.
 
+This dashboard design and implementation showcase the value of user centered and literate programming in the scientific computing. Breaking the analitycal bottleneck while integrating an interface with high performance, analitycal backend and is user friendly, yet essential, design task in scientific computing.
+
+Future work will focus on enhancing the dashboard by incorporating multi-model ensemble data to better represent uncertainties, expanding the analysis to include more planetary boundaries, and adding features for comparing different climate or policy scenarios. By continuing to lower the barrier to entry for planetary boundaries science, this project contributes to a more informed and engaged global community, which is a fundamental prerequisite for navigating a sustainable path within our planet's safe operating space.
 
 ```{=latex}
 \nocite{*}
