@@ -1,0 +1,153 @@
+---
+title: ""
+author: .
+date: ""
+format: 
+  pdf:
+    documentclass: article
+    papersize: letter
+bibliography: bibliography.bib
+nocite: |
+  @*
+---
+```{=latex}
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\Huge \textbf{Assessing Planetary Boundaries through an Interactive Accessible Dashboard (WIP)}}\\[1cm]
+{\large \textbf{Author:} Leonardo Torres}\\[1cm]
+{\large \textbf{Date:} December 10, 2025}
+\end{center}
+\vspace*{\fill}
+\clearpage
+```
+
+
+
+
+
+## Introduction Section : Accessible analysis on visualizing Planetary Boundaries
+
+In the Antrhopocene era, the scale of human influence on the Earth natural system has become so significant that it threatens the overall stability and maintenance of the Holocene like state of the world which has supported the development of human societies for the past millennia. The constant change in global biogeochemical flows, climate change, and biosphere integretiy throughout the past few decades are reason why we need to implement some scientific framework to quantify and mitigate the risks our planet is facing. The Planetary Boundaries (PB) framework was established to address this need, proposing quantitative limits for nine critical Earth system processes to define a "safe operating space" for humanity (Rockstrom, 2009). However, a significant implementation gap persists between this high-level conceptual framework and the ability to perform consistent, transparent, and reproducible assessments of boundary status.
+
+Current assessments indicate that multiple planetary boundaries have already been transgressed, moving humanity into a zone of increasing risk for systemic environmental destabilization. Understanding the precise timing, magnitude, and spatial patterns of these transgressions is crucial for informing effective responses and sustainability changes to ensure we don't reach a high risk zone. Yet, the scientific community has lacked a standardized computational tool to facilitate such analyses across different models and datasets. Existing approaches often rely on dispersed, one-off scripts that are difficult to trace, validate, or reproduce, creating barriers to the rigorous and repeated evaluation of Earth system states (Gerten, 2025).
+
+The recent development of the boundaries R package represents a substantial step toward addressing this methodological gap. This open-source software provides a structured environment for calculating and visualizing PB statuses based on outputs from biosphere models such as LPJmL, which are publically available online. While this package offers powerful analytical capabilities for experts, its complex nterface and computational requirements present a significant accessibility barrier for a broader audience of policymakers, educators, and researchers.
+
+This project aims to offer access to planetary boundaries assessment by developing an interactive, dashboard that serves as a user-friendly interface for the boundaries software. The primary objective is to abstract the underlying computational complexity of the R package while preserving its analytical rigor, enabling users to intuitively explore spatial and temporal patterns of planetary boundary transgression. By providing dynamic visualization tools and configurable parameters, this dashboard will empower non-technical users to generate customized PB assessments, thereby enhancing the transparency, accessibility, and utility of planetary boundaries science for global sustainability and education of our current Earth Status and potential solutions to address it.
+
+
+
+## Background: Planetary Boundaries and "boundaries" R package.
+In this section, I will establish the scientific and methodological groundwork for this project. I will first dive into the Planetary Boundaries (PB) framework as a foundation concept for quantifying global environmental system risk. Afterwards, I will go into what the boundaries R package is, the contribution it offers, and overall its analytically functions for the purpose of this project.
+
+### Planetary Boundaries Framework
+The Planetary Boundaries framework, introduced by Rockstrom (2009), provides a science-based proposal for understanding and quantifying the limits of anthropogenic perturbation on critical Earth system processes, which we will describe within this section. This framework has been establish to represent a planetary state throughout the past ~11,000 years, known as the Holocene epoch, which is the only planetary state known to support humans. The drastic human impact on the Earth system throughout the last few decades has put the planet into a risky position that could be out of the scope of the Holocene epoch, putting us into a stage of non-linear, abrupt, and irreversible environmental changes on a planetary scale.
+
+This framework establishes nine interlinked planetary boundaries where each correspond with a important Earth system process:
+1. Climate Change
+2. Biosphere Integrity 
+3. Land-system change
+4. Freshwater change
+5. Biogeochemical Flows (Nitrogen and Phosphorus cycles)
+6. Ocean Acidification
+7. Atmospheric Aerosol Loading
+8. Stratospheric Ozone Depletion
+9. Novel Entities
+
+Back in 2015, this framework was built upon by Steffen (2015) by incorporating:
+- A Two-Tier approach: Many processes operate at regional scales, boundaries were defined for both global and sub-global levels (such as for fresh water and land-system change)
+- Core Boundaries: Boundaries, such as Climate Change and Biosphere Integrity, regulate the overall state of the Earth system and can individually drive the planet into a new state.
+- Refining Control Variables: Control variables and their quantitative boundaries are updates based on latest scientific evidence.
+
+Overall, there are several boundaries at the moment that have already transgressed the safety threshold, placing humanity in zone to enter a new inhabitable state.
+
+### Boundaries R Package
+
+Gerten (2025) developed the boundaries R package, an open-source R software designed to facilitate the standardized calculation and visualization of planetary boundary statuses. This package serves as a post-processing tool that translates raw model output into PB assessments.
+Some key features of the package:
+- Model Input: Designed to work with outputs from the LPJmL (LundPotsdam-Jena managed Land) dynamic global vegetation model, which overall simulates ecological, hydrological, and biogeochemical processes which will then be used in relevancy to terrestrial PBs.
+- PB Coverage: As mentioned previously, this model is only functionable with terrestrial PBs, this includes the following boundaries: Land-System Change, Biosphere Integrity, Biogeochemical Flows, and Freshwater Change.
+- Core functionality:
+  - Calculation (calc_status) Computes the status of a selected PB for user-defined timer periods and spatial scales within the model
+  - Visualization (plot_status) Generates temporal trajectories and spatial patterns to illustrate when and where boundaries are transgressed, when they cross the safety threshold.
+  - Validation (validate_simulation) Compares the output of the model against independent data sources to ensure plausibility/accuracy.
+
+  
+This important open-source tool, the boundaries package, will allow us to make an advancement in making PB science more accessible, robust, and reproducible. From this, we will build directly upon from this purpose to create a user-friendly dashboard interface that utilizes the package to correctly understand and visualize planetary boundary assessments
+
+
+## Data sources and Processing:
+
+The primary data source for this dashboard is output from the LPJmL biosphere model, which simulates the growth and productivity of natural and agricultural vegetation in coupling with ecological, hydrological, and biogeochemical processes. The boundaries package post-processes these outputs—which include variables like net primary production, streamflow, soil moisture, and nitrogen fluxes—to compute the status of the four terrestrial planetary boundaries. The data is structured in a standardized netCDF format, allowing for consistent spatiotemporal analysis over the period 1901-2017, relative to a pre-industrial reference state.
+
+Such variables can be found in JSON files found such as here:
+
+![Interactive dashboard allowing exploration of boundary sensitivities using slider controls.](figures/JSON_image.png)
+{#JSON_exmaple width=40%}
+
+## Implementation: Building the Dashboard Interface & Functionality
+
+The dashboard (will be) is implemented as a Shiny web application within the R environment. Shiny provides a framework for building interactive web apps directly from R, making it the ideal middleware to connect a user-friendly frontend with the computational backend of the boundaries package. The boundaries R package and its dependencies (e.g., LPJmL), which perform all complex calculations. The Shiny application server, which handles user input, calls the appropriate boundaries functions, and serves the results. The user interface (UI) built with Shiny's UI components, rendered in a web browser. This includes control widgets (sliders, dropdowns, boolean) and output areas for maps and plots.
+Allow user to choose which of the four boundaries to analyze (or multiple)
+Allow to switch between viewing temporal trends (line graphs) and spatial patterns (interactive maps).Modify key scientific thresholds (e.g., the forest cover percentage defining the Land-System Change boundary) to explore different scenarios.
+
+![Interactive dashboard allowing exploration of boundary sensitivities using slider controls.](figures/first_deploy_shiny.png)
+{#fig-shiny-dashboard width=70%}
+
+In the above figure is the first implementation of such shiny app. Being able to show images on the shiny app allows for users to understand more about a planetary boundary in regards to each scope more closely. This first implementation however doesn't allow for users to 
+
+![Interactive dashboard allowing exploration of boundary sensitivities using slider controls.](figures/Final_shiny_app.png)
+{#final-shiny-dashboard width=70%}
+
+
+## Discussion: Limitiations, Future Enhacnments, and Applications in the Real World
+
+This study has several limitations that should be considered when interpreting the results. Although the planetary boundary indicators are derived from LPJmL model outputs, the interactive dashboard does not rerun the underlying Earth system model when user-defined parameters are adjusted. Instead, slider-based controls apply post-processing transformations to already computed boundary status indicators, meaning the interactive scenarios do not represent physically consistent simulations. Because Earth system responses to changes in fertilizer use, land management, and water withdrawals are highly nonlinear and spatially heterogeneous, these simplified adjustments cannot capture feedbacks, threshold behavior, or regional variability inherent to fully recalculated model runs. As a result, the dashboard is best viewed as an exploratory and illustrative tool rather than a predictive modeling framework.
+
+Future work could substantially strengthen the framework by integrating physically consistent scenario simulations with the interactive interface. Rather than rescaling output indicators, a set of predefined LPJmL simulation scenarios representing alternative land-use, fertilizer, or climate pathways could be directly loaded and compared within the dashboard. More advanced implementations could leverage high-performance or cloud computing resources to dynamically trigger new model runs, albeit with longer response times. Additional enhancements include incorporating uncertainty estimates, expanding spatial visualization capabilities beyond aggregated global indicators, and embedding contextual explanations within the dashboard to guide interpretation and reduce the risk of misrepresentation.
+
+The interactive dashboard enables users to intuitively explore the relative sensitivity of planetary boundaries to hypothetical pressures and time horizons, making complex Earth system behavior more accessible to non-specialist audiences. In research settings, the framework can support hypothesis generation and scenario screening by identifying which boundaries respond most strongly and when critical thresholds may be approached, thereby informing more targeted modeling efforts. More broadly, this work illustrates how interactive visualization tools can complement process-based models by translating complex outputs into interpretable formats that support discussion and decision-making around sustainability challenges.
+
+## Ethical Challenges
+The development of an interactive dashboard for planetary boundaries assessment presents several important ethical considerations that have been addressed throughout this project's design and implementation.
+
+### Data Transparency and Reproducibility
+
+Without a clear documentation of data and calculation methods, there are risks of this data being minsterpreted or misued in policy/academic contexts. This should be addressed by: 1. Follow established scientific methodlogies from the boundaries R package. 2. Provide documentation of all data sources and model assumptions within the dashboard. 3. Enable full reproducibility through Github. 4. Keep the project open-source in order to maintain validation and allowing for community input.
+
+### Scientific Communication and Risk of Misinerpretation
+
+The visualizations of planetary boundary data in an accessible dashboard carries the risk of oversimplification or misinterpretation. Users without technical backgrounds might draw inappropriate or incorrect conclusions from presented data. To mitigate such a rish we can: 1. Include contextual information and explanatory notes for each planteary boundary metric. 2. Establish the distinction between the zones of increasing risk, high risk, and holocene. 3. Establish what the limitations are of the model, such that we only have access to certain terrestrial planetary boundaries and terrestrial values in the world.
+
+
+### Global Sustainability
+
+The planetary boundaries framework inherently raises questions of global equity and justice. The current rules documented in the dashboard result disproportionately from historical and contemporary resource use by industrialized nations, while the consequences often affect vulnerable populations most severely. This project acknowledges these ethical worries by: 1.Clearly presenting data at multiple scales (global, regional, and biome level) to highlight different impacts. 2.Avoiding framing that suggests equal responsibility or equal consequences across different regions and populations
+
+### Open Access and Knowledge
+
+This project is built on the belief that important scientific information should be available to everyone. To achieve this, the dashboard is designed to be free to use and easy to understand, even for people who are not experts. This ensures that students, teachers, and community leaders can all use it to learn about planetary boundaries. The code behind the dashboard is also open for anyone to see and improve, encouraging a community effort to make the tool better for everyone. Some demo or examples will be available as well to ensure people who want to access this knowledge can freely do this.
+
+
+### Responsible Implementation/Use and Impact Considerations
+
+The dashboard is meant to provide reliable information and support discussion surrounding planetary boundaries. It does not tell users what decisions to make or what policies to support as these worlds don't reflect the real one. The data shows the physical limits of our planet, but how we choose to live within those limits involves complex social and ethical choices that are up to society to decide. By focusing on presenting the facts clearly and without bias, the tool aims to empower users to make their own informed choices. In order to ensure this message goes across, users must understand a terms and conditions that shows that show data and visualizations is for the sole purpose of getting a better understanding of planetary boundaries within a scope of another world.
+
+## Conclusion & Reflection
+The project provides an example of an accessible interface built for complex scientific computational tools. The dashboard built from the boundaries R package, while retaining the technical complexity of the dashboard, democratization of closure planetary boundaries science. This can enable educators, provide transparent, data-driven visualizations, and support policymakers brainstorm ideas towards change.
+
+This dashboard design and implementation showcase the value of user centered and literate programming in the scientific computing. Breaking the analitycal bottleneck while integrating an interface with high performance, analitycal backend and is user friendly, yet essential, design task in scientific computing.
+
+Future work will focus on enhancing the dashboard by incorporating multi-model ensemble data to better represent uncertainties, expanding the analysis to include more planetary boundaries, and adding features for comparing different climate or policy scenarios. By continuing to lower the barrier to entry for planetary boundaries science, this project contributes to a more informed and engaged global community, which is a fundamental prerequisite for navigating a sustainable path within our planet's safe operating space.
+
+```{=latex}
+\nocite{*}
+```
+
+## References
+
+```{=latex}
+\bibliographystyle{plain}
+\bibliography{bibliography}
+```
